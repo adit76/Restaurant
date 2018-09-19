@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Menu</title>
+</head>
+<body>
+
+	<div class="message_container" id="message_container">
+		<!--All Messages-->
+	</div>
+	
+	<div class="cart_icon" id="cart_icon">In Cart: 0</div>
+	
+	<div class="menu">
+		<div class="list" id="special_offer">
+			<!-- <table>
+				
+			</table> -->
+		</div>
+		
+		<div class="orders">
+			<div class="fixed_container_parent">
+				<div class="fixed_container">
+					<div class="items" id="orders">
+						<b>Make Some Orders...</b>
+						<!-- <table>
+						
+						</table>-->
+					</div>
+					
+					<hr/>
+					
+					<div class="calculations">
+						<p id="bill_total_quantity">Total Quantity: 0</p>
+						<p id="bill_total">Total: Rs. 0.00</p>
+						<p id="bill_tax">Tax: Rs. 0.00</p>
+						<p id="bill_delivery_charge">Delivery Charge: Rs. 0.00</p>
+						<p id="bill_sub_total">Sub Total: Rs. 0.00</p>
+					</div>
+					
+					<button class="big_button order_btn" id="order_btn">Order Now</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	<Style>
+		body{
+			font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+		}
+	
+		.menu{
+			display: flex;
+			justify-content: center;
+			min-height: 200px;
+		}
+		
+		.menu .list{
+			width: 45%;
+			border: 1px solid black;
+		}
+		
+		.menu table{
+			width: 100%;
+			border-collapse:separate; 
+			border-spacing:0;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select:none;
+			user-select:none;
+			-o-user-select:none;
+		}
+		
+		.menu b{
+			display: block;
+			text-align: center;
+			letter-spacing: 5px;
+			padding: 5px 0;
+		}
+		
+		.menu table tr td, .menu table tr th{
+			padding: 5px;
+		}
+		
+		.menu table tr th{
+			background: #67aa77;
+			color: white;
+			text-align: left;
+		}
+		
+		.menu table tr:nth-child(odd) {
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.menu .orders{
+			margin-left: 20px;
+			width: 45%;
+		}
+		
+		.menu .orders .fixed_container_parent{
+			width: 100%;
+			position: relative;
+		}
+		
+		.menu .orders .fixed_container{
+			border: 1px solid black;
+			position: relative;
+			overflow-y: auto;
+			max-height: 96%; /* For scrolling */
+		}
+		
+		.menu .orders .fixed_container_fixed{
+			position: fixed;
+			top: 5px;
+			width: inherit;
+			max-width: 44.4%;			
+		}
+		
+		.menu .list table{
+			animation: show 0.5s ease forwards;
+		}
+		
+		.menu .orders .items .current_change{
+			animation: change 0.5s ease forwards;
+			opacity: 1;
+		}
+		
+		@media screen and (max-width: 800px){
+			.menu{
+				flex-flow: column;
+				align-items: center;
+				min-height: 200px;
+			}
+			
+			.menu .orders{
+				margin-left: 0;
+				margin-top: 10px;
+				width: 400px;
+			}
+			
+			.menu .orders, .menu .list{
+				width: 90%;
+			}
+			
+			.menu .orders .fixed_container{
+				position: relative;
+				width: auto;
+				max-width: 100%;
+			}
+		}
+		
+		@keyframes show{
+			from{opacity: 0; transform: scale(0) translate(350px, 0);}
+			to{opacity: 1; transform: scale(1) translate(0, 0);}
+		}
+		
+		@keyframes change{
+			from{background: #98CC98; transform: scale(0.9) translate(-10%,0);}
+			to{background: inherit; transform: scale(1) translate(0,0);}
+		}
+		
+		@keyframes delete_change{
+			from{background: #CC9898; transform: scale(0.9) translate(0,3px);}
+			to{background: inherit; transform: scale(1) translate(0,0);}
+		}
+		
+		@keyframes nope{
+			from{background: #CC9898; transform: scale(1) rotate(0);}
+			25%{background: #CC9898; transform: scale(1.1) rotate(-20deg);}
+			50%{background: #CC9898; transform: scale(1.1) rotate(20deg);}
+			75%{background: #CC9898; transform: scale(1.1) rotate(10deg);}
+			to{background: initial; transform: scale(1) rotate(0);}
+		}
+		
+		.menu .orders .calculations{
+			font-weight: 500;
+			margin-left: 10px;
+		}
+		
+		.menu .orders .calculations p{
+			margin: 2px;
+		}
+		
+		.menu .orders .calculations #bill_sub_total{
+			font-weight: 700;
+			font-size: 1.05em;
+			letter-spacing: 3px;
+			position: relative;
+		}
+		
+		.menu .orders .calculations #bill_sub_total:after{
+			white-space: pre;
+			content: "  :)";
+			position: absolute;
+			top: -5px;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.5s 0.5s ease;
+		}
+		
+		.menu .orders .calculations #bill_sub_total:hover:after{
+			opacity: 1;
+			visibility: visible;
+			transform: rotate(90deg);
+		}
+		
+		/* Message Container */
+		.message_container{
+			position: fixed;
+			right: 20px;
+			top: 30px;
+			z-index: 9999;
+		}
+		
+		.message_container .error_msg{
+			background: #dd5555;
+			color: white;
+			font-size: 1.2em;
+			padding: 15px;
+			margin: 0 0 5px 0;
+			animation: fade 0.5s 3s ease forwards;
+		}
+		
+		.message_container .success_msg{
+			background: #55dd55;
+			color: black;
+			font-size: 1.2em;
+			padding: 15px;
+			margin: 0 0 5px 0;
+			animation: fade 1s 4s ease forwards;
+		}
+		
+		@keyframes fade{
+			from{opacity: 1; transform: scale(1); display: block;}
+			70%{opacity: 0.7; transform: scale(1.2); display: block;}
+			to{opacity: 0; transform: scale(0.1); display: none; visibility: hidden;}
+		}
+		
+		/* For any btns centers you know sometimes needed like add delete btn */
+		.btn{
+			text-align: center;
+			font-weight: 700;
+			cursor: pointer;
+			transition: background 0.5s ease, box-shadow 1s ease;
+			width: 30px !important;
+		}
+		
+		.btn:hover{
+			background: wheat;
+			box-shadow: 0 0 20px 0 #9a9a9a;
+		}
+		
+		/*BUTTON*/
+		
+		.big_button{
+			padding: 10px;
+			background: #449965;
+			color: white;
+			border: 1px solid black;
+			font-weight: bold;
+			margin: 10px 0 10px 0;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+		
+		.big_button:hover{
+			box-shadow: 1px 0 3px 0 #323232;
+		}
+		
+		.menu .orders .calculations button{
+			background: salmon;
+			color: white;
+		}
+		
+		.order_btn{
+			display: none;
+			margin-left: 10px;
+		}
+	</Style>
+	
+	<noscript>
+		<style>
+			.menu{
+				display: none;
+			}
+			
+			h1{
+				text-align: center;
+				font-family: courier;
+			}
+		</style>
+		<h1>Dude, Turn On the Java Script, Or else Nothing gonna work.</h1>
+	</noscript>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="Resources/jquery-3.3.1.js"></script>
+	
+	<script>
+		
+		
+		var fixmeTop = $('.fixed_container').offset().top;       // get initial position of the element
+
+		$(window).scroll(function() {                  // assign scroll event listener
+
+			var currentScroll = $(window).scrollTop(); // get current position
+
+			if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+				$('.fixed_container').addClass('fixed_container_fixed');
+			} else {                                   // apply position: static
+				$('.fixed_container').removeClass('fixed_container_fixed');
+			}
+
+		});
+
+		//var allItems = [];
+		/*$.ajax({
+			url: 'menu',
+			method: "GET",
+			cache: false,
+			error: function() {
+				console.log("Could Not Fetch");
+			},
+			success: function(data) {
+				allItems = data;
+				displayMenu();
+			}
+		});*/
+	
+		// Query Result		
+		var allItems = [{'id':1,'name':'Veg. Mo:Mo','price':'60','description':'','special':'0'}, {'id':2,'name':'Chowmin','price':'40','description':'Plain Healthy Veg Chowmin','special':'0'}, {'id':3,'name':'Cheese Pizza','price':'120','description':'','special':'0'}, {'id':4,'name':'Veg Royal Burger','price':'180','description':'','special':'1'}, {'id':5,'name':'Pastries + Milk Shake','price':'180','description':'','special':'1'}, {'id':6,'name':'Cheek-Peas With Eggs','price':'100','description':'','special':'0'}, {'id':7,'name':'Banana Pancake','price':'70','description':'','special':'0'}, {'id':8,'name':'Egg Roll Mini','price':'40','description':'','special':'0'}];
+		
+		///####///
+		displayMenu(); // IMPORTANT : NOTE: REMOVE THIS CALL AFTER AJAX ADDED////############
+		///###///
+		
+		// Cart Empty Initially
+		var inCart = [];
+		
+		if(localStorage.getItem('cart') != null){
+			if(localStorage.getItem('cart_date') !== null){
+				if(new Date().getDate() > localStorage.getItem('cart_date')){
+					localStorage.removeItem('cart_date');
+					localStorage.removeItem('cart');
+				}else{
+					var cache_cart = JSON.parse(localStorage.getItem('cart'));
+								
+					$('#orders').append('<div style="margin-left: 10px;"><u>Cached Orders: </u><br/>');
+					for(let i = 0 ; i < cache_cart.length ; i++){
+						$('#orders').append('<i style="margin-left: 10px;">' + cache_cart[i]['name'] + ' - ' + cache_cart[i]['quantity'] + ' unit(s)</i><br/>');
+					}
+					$('#orders table td').css({'opacity':'0.5','color':'brown'});
+					clearCacheOrders();
+				}
+			}
+		}
+		
+		var currentChange; //TO keep Track of Latest Change for Animating.
+		var deleteAnimate = false;
+		
+		function displayMenu(){
+			var hasSpecial = 0;
+			//Start Making Table
+			var tableSpecialOffer = "<b>Special Offer</b>" + 
+								"<table>" + 
+								"<tr>" + 
+								"<th>Item</th>" + 
+								"<th>Price</th>" + 
+								"<th>Add</th>" + 
+								"<th>Del</th>" + 
+								"</tr>";
+								
+			var tableMenu = "<b>Menu Items</b>" + 
+								"<table>" + 
+								"<tr>" + 
+								"<th>Item</th>" + 
+								"<th>Price</th>" + 
+								"<th>Add</th>" + 
+								"<th>Del</th>" + 
+								"</tr>";
+			//Fill Menu
+			for(var i = 0 ; i < allItems.length ; i++){
+				if(allItems[i]['special'] == 1){
+					hasSpecial = 1;
+					tableSpecialOffer = tableSpecialOffer + "<tr title='" + allItems[i]['description'] + "'>" + 
+								"<td>"+allItems[i]['name']+"</td>" + 
+								"<td>Rs. "+allItems[i]['price']+"</td>" + 
+								"<td class='btn' onclick='addNew(this," + allItems[i]['id'] + ',' + i +  ")'>" + '+' +"</td>" + 
+								"<td class='btn' onclick='removeNew(this," + allItems[i]['id'] + ',' + i +  ")'>"+ '-' +"</td>" + 
+								"</tr>";
+				}else{
+					tableMenu = tableMenu + "<tr title='" + allItems[i]['description'] + "'>" + 
+								"<td>"+allItems[i]['name']+"</td>" + 
+								"<td>Rs. "+allItems[i]['price']+"</td>" + 
+								"<td class='btn' onclick='addNew(this," + allItems[i]['id'] + ',' + i +  ")'>" + '+' +"</td>" + 
+								"<td class='btn' onclick='removeNew(this," + allItems[i]['id'] + ',' + i +  ")'>"+ '-' +"</td>" + 
+								"</tr>";
+				}		
+			}
+			
+			tableSpecialOffer = tableSpecialOffer + "</table>";
+			tableMenu = tableMenu + "</table>";
+			//APPEND MENU
+			if(hasSpecial==1){
+				$('#special_offer').append(tableSpecialOffer);
+			}
+			$('#special_offer').append(tableMenu);
+		}
+		
+		function addNew(click_id, id, index){
+			//alert(id);
+			//alert(index);
+			if(allItems[index].hasOwnProperty('quantity')){
+				allItems[index].quantity = allItems[index].quantity + 1;
+				currentChange = inCart.indexOf(allItems[index]); //Track current Change for Animation
+			}else{
+				allItems[index].quantity = 1;
+				inCart.push(allItems[index]);
+				currentChange = inCart.indexOf(allItems[index]); //Track current Change for Animation
+			}
+			
+			deleteAnimate = false;
+			
+			refreshOrders();
+			refreshBill();
+			refreshCartIcon();
+			
+			console.log(inCart);
+		}
+		
+		function removeNew(click_id, id, index){
+			//alert(id);
+			//alert(index);
+			if(allItems[index].hasOwnProperty('quantity')){
+				if(allItems[index].quantity > 1){
+					allItems[index].quantity = allItems[index].quantity - 1;
+				}else{
+					delete allItems[index].quantity;
+					//alert (inCart.indexOf(allItems[index]));
+					if(inCart.indexOf(allItems[index]) >= 0){
+						inCart.splice(inCart.indexOf(allItems[index]),1);
+						console.log("YES");
+					}else{
+						console.log("No");
+						click_id.style.animation = 'nope 1s ease forwards';
+						showError('First Add, Then Remove');
+						return;
+					}
+				}
+				currentChange = inCart.indexOf(allItems[index]);
+			}else{
+				//alert (inCart.indexOf(allItems[index]));
+				if(inCart.indexOf(allItems[index]) >= 0){
+					inCart.splice(inCart.indexOf(allItems[index]),1);
+					console.log("YES");
+				}else{
+					console.log("No");
+					click_id.style.animation = 'nope 1s ease forwards';
+					showError('First Add, Then Remove');
+					return;
+				}
+				currentChange = inCart.indexOf(allItems[index]);
+			}
+			
+			deleteAnimate = true;
+			
+			refreshOrders();
+			refreshBill();
+			refreshCartIcon();
+			
+			console.log(inCart);
+		}
+		
+		function refreshOrders(){
+			var ordersHTML = "<b>Orders</b>" + 
+								"<table>" + 
+								"<tr>" + 
+								"<th>Name</th>" + 
+								"<th>Quantity</th>" + 
+								"<th>Unit Price</th>" + 
+								"<th>Total Price</th>" + 
+								"</tr>";
+			//Fill Orders
+			for(var i = 0 ; i < inCart.length ; i++){
+				if(currentChange == i){
+					ordersHTML = ordersHTML + "<tr class='current_change' title='" + inCart[i]['description'] + "'>";
+				}else{
+					ordersHTML = ordersHTML + "<tr title='" + inCart[i]['description'] + "'>";
+				}
+				
+				ordersHTML = ordersHTML + 
+								"<td>"+inCart[i]['name']+"</td>" + 
+								"<td>" +inCart[i]['quantity']+ "</td>" + 
+								"<td>Rs. "+inCart[i]['price']+"</td>" + 
+								"<td>Rs. "+(inCart[i]['price']*inCart[i]['quantity'])+"</td>" + 
+								"</tr>";
+			}
+						
+			ordersHTML = ordersHTML + "</table>";
+			
+			if(inCart.length > 0){
+				$('#order_btn').css({'display':'block'});
+			}else{
+				$('#order_btn').css({'display':'none'});
+			}
+			//Order Button Shown Above//
+
+			//APPEND Orders
+			$('#orders').html('');
+			$('#orders').append(ordersHTML);
+		}
+		
+		function refreshBill(){
+			//Total Quantity
+			var total_quantity = 0;
+			for(var i = 0 ; i < inCart.length ; i++){
+				total_quantity = total_quantity + (inCart[i]['quantity']);
+			}
+			$('#bill_total_quantity').html('Total Quantity: ' + total_quantity);
+			
+			//Total Bill
+			var total = 0;
+			for(var i = 0 ; i < inCart.length ; i++){
+				total = total + (inCart[i]['price'] * inCart[i]['quantity']);
+			}
+			$('#bill_total').html('Total: Rs. ' + total);
+			
+			//Tax
+			var tax = Math.round(((total/100) * 13) * 100) / 100;
+			$('#bill_tax').html('Tax: Rs. ' + tax);
+			
+			//Delivery Charge
+			var delivery_charge = 0;
+			$('#bill_delivery_charge').html('Delivery Charge: Rs. ' + delivery_charge);
+			
+			//Sub-Total
+			var subtotal = Math.round((total + tax + delivery_charge) * 100) / 100;
+			$('#bill_sub_total').html('Sub-Total: Rs. ' + subtotal);
+				
+			if(subtotal >= 5000 && subtotal <= 5200){
+				showSuccess('Rs.' + subtotal + '+++ worth purachase Hooray... Keep Loving Us.');
+			}
+			
+			////////////////////#///#////#///////////////////////#/
+			//BETA: Local Storage Cart Session Creation.
+			localStorage.setItem('cart', JSON.stringify(inCart)); 
+			localStorage.setItem('cart_date', new Date().getDate());
+			/////////////////////#///#////#////////////////////#/
+		}
+		
+		function refreshCartIcon(){
+			$('#cart_icon').html("In Cart: " + inCart.length);
+			
+			//Delete Animate Change CSS....Only works while keeping it here.
+			//No Idea Why... :( SAD VERY SAD....
+			if(deleteAnimate==true){
+				$('.current_change').css({'animation':'delete_change 0.5s ease forwards'});
+			}
+		}
+		
+		function showError(msg){
+			$('#message_container').append('<div class="error_msg">' + msg + '</div>');
+			var killer = setInterval(function(){
+				$('#message_container').children().remove();
+				clearInterval(killer);
+			},10000);
+		}
+		
+		function showSuccess(msg){
+			$('#message_container').append('<div class="success_msg">' + msg + '</div>');
+			var killer = setInterval(function(){
+				$('#message_container').children().remove();
+				clearInterval(killer);
+			},10000);
+		}
+		
+		function clearCacheOrders(){
+			$('.calculations').append("<button class='big_button' onclick='clearCache()'>Clear Cached Order</button>");
+		}
+		
+		function clearCache(){
+			localStorage.removeItem('cart_date');
+			localStorage.removeItem('cart');
+			location.reload();
+		}
+	</script>
+</body>
+</html>

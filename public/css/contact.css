@@ -1,0 +1,78 @@
+.contact_container{
+    background-image: url("../images/contactback.jpeg");
+    background-size: cover;
+    padding: 50px 0 100px 0;
+    text-align: center;
+  }
+
+  .map{
+    background: #DEDEDE;
+  }
+
+  .contact_inner{
+    display: inline-flex;
+    height: 500px;
+    overflow: hidden;
+    color: white;
+  }
+
+  .contact_inner h1{
+    word-spacing: 10px;
+    letter-spacing: 2px;
+  }
+
+  .info h4{
+    color: teal;
+  }
+
+  .contact_inner .content{
+    background: linear-gradient(to right, #000000 0%, #434343 100%);
+    background-size: cover;
+    width: 450px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  .contact_inner .content h1{
+    padding: 20px;
+  }
+
+  form input{
+    width: 90%;
+    height: 15px;
+    margin: 5px 0;
+    padding: 20px 5px;
+  }
+
+  form textarea{
+    width: 90%;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .content button{
+    text-align: center;
+  }
+
+  form button{
+    display: block;
+    margin:  10px auto;
+    width: auto;
+    min-width: 50px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: teal;
+    color: #EDEDED;
+    font-weight: bolder;
+    transition: 0.3s ease;
+    outline: 0;
+    border: 0;
+  }
+
+  form button:hover{
+    cursor: pointer;
+    background-color: green;
+  }
