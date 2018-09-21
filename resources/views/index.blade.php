@@ -10,6 +10,11 @@
 <style>
 
 	/*CSS OVERRIDE FOR FIXES*/
+	.navigation{
+		background: none !important;
+		background: transparent !important;
+	}
+	
 	#mobile_cart_small {
 		left: -1200% !important;
 		width: 1900% !important;

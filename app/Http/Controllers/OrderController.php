@@ -13,7 +13,7 @@ class OrderController extends Controller
     if(Auth::check()){
       return view('order.order');
     }else{
-      return redirect()->route('login');
+      return redirect()->route('register');
     }
   }
 

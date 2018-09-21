@@ -64,9 +64,13 @@ Route::get('/home', 'HomeController@index')->name('back');
 //ADMIN ROUTE AND CONTROLLER//
 Route::get('/admin', 'AdminController@index')->name('admin_index');
 Route::post('/admin', 'AdminController@login')->name('admin_login');
+Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+Route::get('/dashboard/logout', 'AdminController@logout')->name('admin_logout');
 
 
-
+//Record Update//
+Route::get('update_status', 'AdminController@update_status')->name('update_status');
+Route::get('update_delivery_boy', 'AdminController@update_delivery_boy')->name('update_delivery_boy');
 
 
 
