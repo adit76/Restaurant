@@ -15,7 +15,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- Custom fonts-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="css/admin/style.css" rel="stylesheet">
+	<link href="{{ asset('css/admin/style.css') }}" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
@@ -34,14 +34,14 @@
           </a>
           <ul class="sidenav-second-level collapse" id="orders_toggle">
             <li>
-              <a href="dashboard">Current Orders</a>
+              <a href="{{ route('dashboard') }}">Current Orders</a>
               <!--<a href="dashboard/orders">Current Orders</a>-->
             </li>
             <li>
-              <a href="dashboard/orders/old">Old Orders</a>
+              <a href="{{ route('orders_old') }}">Old Orders</a>
             </li>
              <li>
-              <a href="dashboard/orders/raw">Raw File</a>
+              <a href="{{ route('orders_raw') }}">Raw File</a>
             </li>
           </ul>
         </li>
@@ -52,10 +52,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="reserve_toggle">
             <li>
-              <a href="dashboard/reservations">All Reservations</a>
+              <a href="{{ route('reservations') }}">All Reservations</a>
             </li>
             <li>
-              <a href="dashboard/reservations/old">Old Reserve</a>
+              <a href="{{ route('reservations_old') }}">Old Reserve</a>
             </li>
           </ul>
         </li>
@@ -66,17 +66,32 @@
           </a>
           <ul class="sidenav-second-level collapse" id="users_toggle">
             <li>
-              <a href="dashboard/users">User Details</a>
+              <a href="{{ route('users') }}">User Details</a>
             </li>
             <li>
-              <a href="dashboard/users/orders">User Orders</a>
+              <a href="{{ route('users_orders') }}">User Orders</a>
             </li>
             
           </ul>
         </li>
 
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menu_toggle" data-parent="#exampleAccordion">
+			<i class="fa fa-cutlery" aria-hidden="true"></i>
+            <span class="nav-link-text">Menu</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="menu_toggle">
+            <li>
+              <a href="dashboard/album">Food</a>
+            </li>
+            <li>
+              <a href="dashboard/photos">Routine</a>
+            </li>
+          </ul>
+        </li>
+		
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-          <a class="nav-link directlink" href="dashboard/messages">
+          <a class="nav-link directlink" href="{{ route('messages') }}">
 			<i class="fa fa-comments" aria-hidden="true"></i>
             <span class="nav-link-text">Messages</span>
           </a>
@@ -98,7 +113,7 @@
         </li>
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Delivery Boy">
-          <a class="nav-link directlink" href="dashboard/delivery_boy">
+          <a class="nav-link directlink" href="{{ route('delivery_boy') }}">
 			<i class="fa fa-motorcycle" aria-hidden="true"></i>
             <span class="nav-link-text">Delivery Boy</span>
           </a>
@@ -115,75 +130,14 @@
 
       <!-- end of side nav -->
 
-
-      <!-- message box and notifications -->
-      <!-- message box -->
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+          <a class="nav-link mr-lg-2" href="{{ route('messages') }}">
             <i class="fa fa-fw fa-envelope"></i><span>Messages</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">New Messages:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Hello Wolrd</strong>
-              <div class="dropdown-message small">ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua..</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Ribesh Basnet</strong>
-              <div class="dropdown-message small">ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Smile</strong>
-              <div class="dropdown-message small">ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
-        <!-- end of message box -->
-
-        <!-- Notification -->
-        <li class="nav-item dropdown" style="margin-right: 50px;">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-bell"></i><span>Notification's</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Notification:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text">
-                <strong>Password Update</strong>
-              </span>
-              <div class="dropdown-message small">ipsum dolor sit amet,</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text">
-                <strong>Product Update</strong>
-              </span>
-              <div class="dropdown-message small">ipsum dolor sit amet,</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text">
-                <strong>Accounts Update</strong>
-              </span>
-             
-              <div class="dropdown-message small">This is an automated server response message.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all notifications</a>
-          </div>
         </li>
         <li class="nav-item">
-			<a class="nav-link" href="dashboard/logout">
+			<a class="nav-link" href="{{ route('admin_logout') }}">
 				<i class="fa fa-fw fa-sign-out"></i> Logout
 			</a>
         </li>

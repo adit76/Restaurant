@@ -15,7 +15,7 @@ class MessageController extends Controller
           [
             'name'=>'required',
             'email'=>'required|email',
-            'message'=>'required',
+            'message'=>'required|500',
           ]
         );
 
