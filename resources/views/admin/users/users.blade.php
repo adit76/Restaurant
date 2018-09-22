@@ -21,15 +21,15 @@
 	<tbody>
 		  @foreach($all_users as $key => $data)
 			<tr>    
-			  <th>{{$data->id}}</th>
-			  <th>{{$data->first_name}} {{$data->last_name}}</th>
-			  <th>{{$data->contact}}</th>
-			  <th>{{$data->email}}</th>
-			  <th>{{$data->address}}</th>                 
-			  <th>{{$data->city}}</th>                 
-			  <th>{{$data->street}}</th>                 
-			  <th>{{ $data->verified }}</th>                                
-			  <th>{{ $data->created_at }}</th>                                
+			  <td>{{$data->id}}</td>
+			  <td>{{$data->first_name}} {{$data->last_name}}</td>
+			  <td>{{$data->contact}}</td>
+			  <td>{{$data->email}}</td>
+			  <td>{{$data->address}}</td>                 
+			  <td>{{$data->city}}</td>                 
+			  <td>{{$data->street}}</td>                 
+			  <td>{{ $data->verified }}</td>                                
+			  <td>{{ $data->created_at }}</td>                                
 			</tr>
 		@endforeach
 		</tbody>

@@ -11,9 +11,9 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
@@ -22,7 +22,7 @@
 <div class="navigation">
 
     <div class="left">
-      <a href="index"><img src="images/logo.png"></a>
+      <a href="index"><img src="{{ asset('images/logo.png') }}"></a>
     </div>
 
     <div class="right nav-right">
@@ -36,6 +36,7 @@
         <li><a href="register">REGISTER</a></li>
         @else
         <li><a href="logout">LOGOUT</a></li>
+        <li><a href="view" alt="Orders And Reservations">VIEW</a></li>
         @endauth
         <li onclick="dropdown(this.className)" class="dropdown_btn_only" style="position: relative;"><a href="#!">CART <i class="fas fa-shopping-cart"></i><span id="total_cart"></span></a>
 			<div class="dropdown" id="cart_small">
@@ -83,6 +84,7 @@
                 <li><a href="login">LOGIN</a></li>
                 <li><a href="register">REGISTER</a></li>
                 @else
+                <li><a href="view">VIEW</a></li>
                 <li><a href="logout">LOGOUT</a></li>
                 @endauth
               </ul>

@@ -6,12 +6,10 @@
 
 .user_form {
 	width: auto !important;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 /*Bootstrap Ovverrides*/
-
-.user_form{
-  margin: 0 auto;
-}
 
 .btn{
   width: auto !important;

@@ -65,6 +65,10 @@
                                 </a>
                             </div>
                         </div>
+						
+						<div class="panel-heading"><a href="register">Need to Register?</a>
+						<a href="admin" style="float: right;">Admin?</a>
+						</div>
                     </form>
                 </div>
             </div>

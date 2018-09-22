@@ -1,20 +1,15 @@
 @extends('admin.layout.layout')
 
-@section('title','Old Orders | Restro')
+@section('title','Order | Restro')
 
 @section('main')
 <style>
 	.toggler_hidden{
-		display: none;
 		font-weight: 400;
-	}
-	
-	.toggler::before{
-		content: "View All >";
 	}
 </style>
 
-<h2>Old Orders</h2>
+<h2>Order : ID {{ $orders_one[0]->id }}</h2>
  <table class="table">
    <thead>
 	 <tr>
@@ -30,9 +25,9 @@
 	 </tr>
    </thead>
 	<tbody>
-		  @foreach($all_orders_old as $key => $data)
+		  @foreach($orders_one as $key => $data)
 			<tr>    
-			  <td><a href="{{ route('orders_id',['id'=>$data->id])}}">{{$data->id}}</a></td>
+			  <td>{{$data->id}}</td>
 			  <td class="toggler" onclick='toggler(this)' id="tab_{{$key + 1}}">
 				<script>genTable("{{json_encode($data->items)}}","tab_{{$key + 1}}");</script>
 			  </td>
@@ -41,19 +36,47 @@
 			  <td>{{$data->address}}</td>                 
 			  <td>{{$data->city}}</td>                 
 			  <td>{{$data->street}}</td>                 
-			  <td>{{ $data->name }}</td>               
 			  <td>
-					@if ($data->status == "1")
-						Ordered
-					@elseif ($data->status == "2")
-						Reviewed
-					@elseif ($data->status == "3")
-						On The Way
-					@elseif ($data->status == "4")
-						Delivered
-					@else
-					   Error
-					@endif
+				@if ($data->status == "4")
+					{{$delivery_boy[0]->name}}
+				@else
+				<select onchange="updateDeliveryBoy({{$data->id}}, this)">
+					<option value="0" selected> </option>
+					@foreach($delivery_boy as $boy)
+						@if($boy->id == $data->delivery_boy)
+							<option value="{{$boy->id}}" selected>{{$boy->name}}</option>
+						@else
+							<option value="{{$boy->id}}">{{$boy->name}}</option>
+						@endif
+					@endforeach
+				</select>
+				@endif
+			  </td>                 
+			  <td>
+				@if ($data->status == "4")
+					Delivered
+				@else
+				  <select onchange="updateStatus({{$data->id}}, this)">
+					<option id="{$data->id}}_status" value="" disabled selected style="display:none;">
+						@if ($data->status == "1")
+							Ordered
+						@elseif ($data->status == "2")
+							Reviewed
+						@elseif ($data->status == "3")
+							On The Way
+						@elseif ($data->status == "4")
+							Delivered
+						@else
+						   Error
+						@endif
+						
+					</option>
+					<option value="1">Ordered</option>
+					<option value="2">Reviewed</option>
+					<option value="3">On The Way</option>
+					<option value="4">Delivered</option>
+				  </select>
+				  @endif
 			  </td>                 
 			</tr>
 		@endforeach
@@ -103,13 +126,41 @@
 		//alert(subtotal);
 		document.getElementById(th).innerHTML = content;
 	}
-
-	function toggler(item){
-		if(item.children[0].style.display == "block"){
-			item.children[0].style.display = "none";
-		}else{
-			item.children[0].style.display = "block";
-		}
+	
+	function updateStatus(id,item){
+		//alert(id);
+		//alert(item.value);
+		$.ajax({
+			url: '../../../update_status?id='+id+'&value='+item.value,
+			type: "GET",
+			dataType: "text",
+			success: function (data) {
+				if(data == "OK"){
+					alert('Status Updated');
+				}
+				console.log('Status Updated');
+			},
+			error: function () {
+				console.log('Could Not Update Status.');
+			}
+		});
+	}
+	
+	function updateDeliveryBoy(id, item){
+		$.ajax({
+			url: '../../../update_delivery_boy?id='+id+'&value='+item.value,
+			type: "GET",
+			dataType: "text",
+			success: function (data) {
+				if(data == "OK"){
+					alert('Delivery Boy Updated');
+				}
+				console.log('Delivery Boy Updated');
+			},
+			error: function () {
+				console.log('Could Not Update Delivery Boy.');
+			}
+		});
 	}
 	
  </script>

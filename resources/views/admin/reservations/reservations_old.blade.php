@@ -20,14 +20,14 @@
 	<tbody>
 		  @foreach($all_reservations_old as $key => $data)
 			<tr>    
-			  <th>{{$data->id}}</th>
-			  <th>{{$data->user_id}}</th>
-			  <th>{{$data->date}}</th>
-			  <th>{{$data->time}}</th>
-			  <th>{{$data->name}}</th>
-			  <th>{{$data->seats}}</th>                 
-			  <th>{{$data->seat_id}}</th>                 
-			  <th>{{$data->status}}</th>                                               
+			  <td>{{$data->id}}</td>
+			  <td>{{$data->user_id}}</td>
+			  <td>{{$data->date}}</td>
+			  <td>{{$data->time}}</td>
+			  <td>{{$data->name}}</td>
+			  <td>{{$data->seats}}</td>                 
+			  <td>{{$data->seat_id}}</td>                 
+			  <td>{{$data->status}}</td>                                               
 			</tr>
 		@endforeach
 		</tbody>

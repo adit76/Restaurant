@@ -12,7 +12,6 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
-				<div class="panel-heading"><a href="login">Already A User?</a></div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -142,6 +141,8 @@
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </div>
                         </div>
+						
+						<div class="panel-heading"><a href="login">Already A User?</a></div>
                     </form>
                 </div>
             </div>

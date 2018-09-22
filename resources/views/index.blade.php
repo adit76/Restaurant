@@ -292,80 +292,21 @@
 
 		<div class="gallery_inner" style="display: flex; flex-wrap: wrap; justify-content: space-around; justify-content: space-evenly;">
 
-
-			<div class="image_container">
-				<a href="photo_gallery.html">
-				<img src="https://www.irishtimes.com/polopoly_fs/1.3424334.1520875442!/image/image.jpg_gen/derivatives/box_620_330/image.jpg">
-				<div class="inner_animated"><p>Dashain</p></div>
-				</a>
-			</div>
-			<div class="image_container">
-			<a href="images/gallery/photo_gallery.html">
-				<img src="http://b.static.trunity.net/files/299501_299600/299598/vertical-farming-chris-jacobs.jpg">
-				<div class="inner_animated"><p>Tihar</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_3.jpg">
-				<div class="inner_animated"><p>Ram's Birthday</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_4.jpg">
-				<div class="inner_animated"><p>Holi</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-				<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_5.jpg">
-				<div class="inner_animated"><p>9/14/2018</p></div>
-				</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_6.jpg">
-				<div class="inner_animated"><p>8/25/2018</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_4.jpg">
-				<div class="inner_animated"><p>Ladies Night</p></div>
-			</a>
-			</div>
-
-		<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_3.jpg">
-				<div class="inner_animated"><p>Awesome</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_2.jpg">
-				<div class="inner_animated"><p>9/14/2018</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_1.jpg">
-				<div class="inner_animated"><p>9/14/2018</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_5.jpg">
-				<div class="inner_animated"><p>9/14/2018</p></div>
-			</a>
-			</div>
-			<div class="image_container">
-			<a href="photo_gallery.html">
-				<img src="images/gallery/photo_gallery_6.jpg">
-				<div class="inner_animated"><p>9/14/2018</p></div>
-			</a>
-			</div>
+			@if(count($gallery) == 0)
+				<h3>Gallery Is Empty.</h3>
+			@endif
+			
+			<?php $i = 0; ?>
+			@foreach($gallery as $g)			
+				<div class="image_container">
+					<a href="gallery/{{$g[$i]->id}}">
+					<img src="{{asset('images/gallery/'.$g[$i]->url)}}">
+					<div class="inner_animated" style="text-align: center;"><p>{{$g[$i]->name}}<br/>{{$g[$i]->date}}</p></div>
+					</a>
+				</div>
+				
+				<?php $i = $i + 1; ?>
+			@endforeach
 
 		</div>
 </div>

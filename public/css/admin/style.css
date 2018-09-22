@@ -4,11 +4,9 @@ html{
 }
 body{
 	overflow-x: hidden;
-  background-color:#5d8aa8;
 }
 body.sticky-footer{
 	margin-bottom: 56px;
-
 }
 body.sticky-footer .content-wrapper {
 	min-height: calc(100vh - 56px - 56px)

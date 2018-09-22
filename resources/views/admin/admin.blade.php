@@ -6,7 +6,7 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 
-<div class="user_form" style="height: 450px; min-height: 350px; margin-top: 20px;">
+<div class="user_form" style="height: 450px; min-height: 350px;">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

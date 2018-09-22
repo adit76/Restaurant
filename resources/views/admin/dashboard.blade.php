@@ -6,7 +6,7 @@
 <style>
 	.toggler_hidden{
 		display: none;
-		font-weight: 200;
+		font-weight: 400;
 	}
 	
 	.toggler::before{
@@ -30,18 +30,22 @@
 	 </tr>
    </thead>
 	<tbody>
+		  @if(count($all_orders) == 0)
+			<tr><td><h3 style="position: absolute; text-align:center; width: 100%; padding-top: 30px">No Orders At The Moment</h3></td></tr>
+		  @endif
+		  
 		  @foreach($all_orders as $key => $data)
 			<tr>    
-			  <th>{{$data->id}}</th>
-			  <th class="toggler" onclick='toggler(this)' id="tab_{{$key + 1}}">
+			  <td><a href="{{ route('orders_id',['id'=>$data->id])}}">{{$data->id}}</a></td>
+			  <td class="toggler" onclick='toggler(this)' id="tab_{{$key + 1}}">
 				<script>genTable("{{json_encode($data->items)}}","tab_{{$key + 1}}");</script>
-			  </th>
-			  <th>{{$data->first_name}} {{$data->last_name}}</th>
-			  <th>{{$data->contact}}</th>
-			  <th>{{$data->address}}</th>                 
-			  <th>{{$data->city}}</th>                 
-			  <th>{{$data->street}}</th>                 
-			  <th>
+			  </td>
+			  <td>{{$data->first_name}} {{$data->last_name}}</td>
+			  <td>{{$data->contact}}</td>
+			  <td>{{$data->address}}</td>                 
+			  <td>{{$data->city}}</td>                 
+			  <td>{{$data->street}}</td>                 
+			  <td>
 			  
 				<select onchange="updateDeliveryBoy({{$data->id}}, this)">
 					<option value="0" selected> </option>
@@ -54,8 +58,8 @@
 					@endforeach
 				</select>
 			  
-			  </th>                 
-			  <th>
+			  </td>                 
+			  <td>
 			  <select onchange="updateStatus({{$data->id}}, this)">
 				<option id="{$data->id}}_status" value="" disabled selected style="display:none;">
 					@if ($data->status == "1")
@@ -76,7 +80,7 @@
 				<option value="3">On The Way</option>
 				<option value="4">Delivered</option>
 			  </select>
-			  </th>                 
+			  </td>                 
 			</tr>
 		@endforeach
 		</tbody>

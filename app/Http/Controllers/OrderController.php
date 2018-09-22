@@ -43,17 +43,12 @@ class OrderController extends Controller
   }
 
   public function view(){
-	/* $available_rooms = DB::table('orders as o')
-                            ->select('o.items', 'o.status')
-                            ->whereRaw("user_id = " . Auth::user()->id)
-                            ->get();
-	return $available_rooms; */
 	if(Auth::user()){
-		$allOrders = DB::select('SELECT items, status FROM orders WHERE user_id = ' . Auth::user()->id);
-		//return array($allOrders);
-		#//Session::flash('allOrders', $allOrders);
-		//return view('order.view')->with('allOrders',$allOrders);
-		return view('order.view', compact('allOrders'));
+		$all_orders = DB::table('orders')->join('users', 'users.id', '=', 'orders.user_id')->join('delivery_boy', 'orders.delivery_boy', '=', 'delivery_boy.id')->select('orders.id', 'items', 'first_name','last_name','contact','users.address','city','street','delivery_boy','name','status')->where('users.id',Auth::user()->id)->orderBy('status','asc')->get();
+		
+		$all_reservations = DB::table('reservations')->where('status','1')->where('user_id',Auth::user()->id)->get();
+		
+		return view('order.view', ['all_orders' => $all_orders, 'all_reservations' => $all_reservations]);		
 	}else{
 		return redirect()->route('menu');
 	}

@@ -12,16 +12,22 @@
 	   <th>Address</th>
 	   <th>Phone</th>
 	   <th>E-mail</th>
+	   <th>All Delivery</th>
 	 </tr>
    </thead>
 	<tbody>
+		  @if(count($all_delivery_boy) == 0)
+			<tr><td><h3 style="position: absolute; text-align:center; width: 100%; padding-top: 30px">No Delivery Boys Yet !!</h3></td></tr>
+		  @endif
+		  
 		  @foreach($all_delivery_boy as $key => $data)
 			<tr>    
-			  <th>{{$data->id}}</th>
-			  <th>{{$data->name}}</th>
-			  <th>{{$data->address}}</th>
-			  <th>{{$data->phone}}</th>                 
-			  <th>{{$data->email}}</th>                                               
+			  <td>{{$data->id}}</td>
+			  <td>{{$data->name}}</td>
+			  <td>{{$data->address}}</td>
+			  <td>{{$data->phone}}</td>                 
+			  <td>{{$data->email}}</td>                                               
+			  <td><a href="delivery_boy/{{$data->id}}">All Delivery</a></td>                                               
 			</tr>
 		@endforeach
 		</tbody>

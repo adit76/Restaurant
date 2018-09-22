@@ -18,12 +18,12 @@
 	<tbody>
 		  @foreach($all_users as $key => $data)
 			<tr>    
-			  <th>{{$data->uid}}</th>
-			  <th>{{$data->first_name}} {{$data->last_name}}</th>
-			  <th>{{$data->contact}}</th>
-			  <th>{{$data->address}}</th>                 
-			  <th>{{$data->city}}</th>                 
-			  <th>{{ $data->oid }}</th>                                
+			  <td>{{$data->uid}}</td>
+			  <td>{{$data->first_name}} {{$data->last_name}}</td>
+			  <td>{{$data->contact}}</td>
+			  <td>{{$data->address}}</td>                 
+			  <td>{{$data->city}}</td>                 
+			  <td>{{ $data->oid }}</td>                                
 			</tr>
 		@endforeach
 		</tbody>

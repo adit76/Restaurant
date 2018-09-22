@@ -12,13 +12,12 @@
 */
 
 //Index//
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/index', 'HomeController@index')->name('index');
 
-Route::get('/index', function () {
-    return view('index');
-});
+//Gallery
+Route::get('/gallery/{id}', 'HomeController@gallery')->name('gallery');
+
 
 Route::get('/about', function () {
     return view('about');
@@ -67,6 +66,7 @@ Route::post('/admin', 'AdminController@login')->name('admin_login');
 Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard'); //Has Orders Current
 Route::get('/dashboard/logout', 'AdminController@logout')->name('admin_logout');
 //|||| Orders ||||//
+Route::get('/dashboard/orders/id/{id}', 'AdminController@orders_id')->name('orders_id');
 Route::get('/dashboard/orders/old', 'AdminController@orders_old')->name('orders_old');
 Route::get('/dashboard/orders/raw', 'AdminController@orders_raw')->name('orders_raw');
 //|||| Users ||||//
@@ -79,6 +79,17 @@ Route::get('/dashboard/reservations/old', 'AdminController@reservations_old')->n
 Route::get('/dashboard/messages', 'AdminController@messages')->name('messages');
 //|||| Delivery Boy||||//
 Route::get('/dashboard/delivery_boy', 'AdminController@delivery_boy')->name('delivery_boy');
+Route::get('/dashboard/delivery_boy/{id}', 'AdminController@delivery_boy_detail')->name('delivery_boy_detail');
+Route::get('/dashboard/delivery_boy/create/new', 'AdminController@delivery_boy_new')->name('delivery_boy_new');
+Route::post('/dashboard/delivery_boy/create/new', 'AdminController@delivery_boy_new')->name('delivery_boy_new_create');
+//|||| ALBUM ||||//
+Route::get('/dashboard/album', 'AdminController@album')->name('album');
+Route::get('/dashboard/album/{id}', 'AdminController@album_custom')->name('album_custom');
+Route::get('/dashboard/album/delete/{id}', 'AdminController@album_delete')->name('album_delete');
+Route::get('/dashboard/album/new/album', 'AdminController@new_album')->name('new_album');
+Route::post('/dashboard/album/new/album', 'AdminController@new_album')->name('new_album_create');
+Route::get('remove_photo', 'AdminController@remove_photo')->name('remove_photo');
+Route::post('upload_photo', 'AdminController@upload_photo')->name('upload_photo');
 
 
 //Record Update//

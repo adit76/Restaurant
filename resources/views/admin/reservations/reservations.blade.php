@@ -18,16 +18,20 @@
 	 </tr>
    </thead>
 	<tbody>
+		  @if(count($all_reservations) == 0)
+			<tr><td><h3 style="position: absolute; text-align:center; width: 100%; padding-top: 30px">No Reservations To Show !!</h3></td></tr>
+		  @endif
+		  
 		  @foreach($all_reservations as $key => $data)
 			<tr>    
-			  <th>{{$data->id}}</th>
-			  <th>{{$data->user_id}}</th>
-			  <th>{{$data->date}}</th>
-			  <th>{{$data->time}}</th>
-			  <th>{{$data->name}}</th>
-			  <th>{{$data->seats}}</th>                 
-			  <th>{{$data->seat_id}}</th>                 
-			  <th>
+			  <td>{{$data->id}}</td>
+			  <td>{{$data->user_id}}</td>
+			  <td>{{$data->date}}</td>
+			  <td>{{$data->time}}</td>
+			  <td>{{$data->name}}</td>
+			  <td>{{$data->seats}}</td>                 
+			  <td>{{$data->seat_id}}</td>                 
+			  <td>
 			  <select onchange="updateStatus({{$data->id}}, this)">
 				<option id="{$data->id}}_status" value="" disabled selected style="display:none;">
 					@if ($data->status == "1")
@@ -40,7 +44,7 @@
 				</option>
 				<option value="1">Active</option>
 				<option value="0">Expired</option>
-			  </th>                                               
+			  </td>                                               
 			</tr>
 		@endforeach
 		</tbody>
