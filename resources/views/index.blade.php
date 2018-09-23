@@ -26,8 +26,11 @@
 
 	body{
 		opacity: 0;
-		overflow: hidden;
-		transition: opacity 3s 0.5s linear;
+		transition: opacity 4s 0.5s ease-out;
+	}
+	
+	.order_button{
+		cursor: pointer;
 	}
 </style>
 
@@ -103,79 +106,52 @@
 					<div class="img">
 						<img src="images/menu/img1.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Veg. Momo</h3>
+								<h3 style="color: #EFEFEF;">Price: 60</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img2.jpg">
+						<img src="images/menu/img4.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Banana Pancake</h3>
+								<h3 style="color: #EFEFEF;">Price: 60</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img3.jpg">
-					 <div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+						<img src="images/menu/img2.jpg">
+						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
+								<h3 style="color: #DEDEDE;">Ham Burger</h3>
+								<h3 style="color: #EFEFEF;">Price: 80</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 				</div>
 
 				<div class="carousel">
 					<div class="img">
-						<img src="img1.jpg">
+						<img src="images/menu/img1.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Veg. Momo</h3>
+								<h3 style="color: #EFEFEF;">Price: 60</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img3.jpg">
+						<img src="images/menu/img4.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Banana Pancake</h3>
+								<h3 style="color: #EFEFEF;">Price: 60</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img2.jpg">
+						<img src="images/menu/img2.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="carousel">
-					<div class="img">
-						<img src="img2.jpg">
-						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
-						</div>
-					</div>
-					<div class="img">
-						<img src="img2.jpg">
-						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
-						</div>
-					</div>
-					<div class="img">
-						<img src="img2.jpg">
-						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Ham Burger</h3>
+								<h3 style="color: #EFEFEF;">Price: 80</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 				</div>
@@ -196,81 +172,54 @@
 			<div class="main main2" style="padding: 10px;">
 				<div class="carousel">
 					<div class="img">
-						<img src="img1.jpg">
+						<img src="images/menu/img3.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Mo:Mo + Coke + Chicken C</h3>
+								<h3 style="color: #EFEFEF;">Price: 180</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img2.jpg">
+						<img src="images/menu/img3.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Mo:Mo + Coke + Chicken C</h3>
+								<h3 style="color: #EFEFEF;">Price: 180</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img3.jpg">
+						<img src="images/menu/img3.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="carousel">
-					<div class="img">
-						<img src="img1.jpg">
-						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
-						</div>
-					</div>
-					<div class="img">
-						<img src="img3.jpg">
-						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
-						</div>
-					</div>
-					<div class="img">
-						<img src="img2.jpg">
-						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Mo:Mo + Coke + Chicken C</h3>
+								<h3 style="color: #EFEFEF;">Price: 180</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 				</div>
 
 				<div class="carousel">
 					<div class="img">
-						<img src="img2.jpg">
+						<img src="images/menu/img3.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Mo:Mo + Coke + Chicken C</h3>
+								<h3 style="color: #EFEFEF;">Price: 180</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img2.jpg">
+						<img src="images/menu/img3.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Mo:Mo + Coke + Chicken C</h3>
+								<h3 style="color: #EFEFEF;">Price: 180</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 					<div class="img">
-						<img src="img2.jpg">
+						<img src="images/menu/img3.jpg">
 						<div class="card" style="background: linear-gradient(to right, #000000 0%, #323232 100%); color: #DEDEDE;  padding: 10px;">
-								<h3 style="color: #DEDEDE;">Soupy Momo</h3>
-								<h3 style="color: #EFEFEF;">Price: 150</h3>
-								<button class="order_button">Order Now</button>
+								<h3 style="color: #DEDEDE;">Mo:Mo + Coke + Chicken C</h3>
+								<h3 style="color: #EFEFEF;">Price: 180</h3>
+								<a href="menu"><button class="order_button">Order Now</button></a>
 						</div>
 					</div>
 				</div>

@@ -12,7 +12,7 @@ class MenuController extends Controller
     }
 
     public function getmenu(){
-      $items = DB::select('SELECT i.id, i.name, c.name as category, i.description, i.price, i.special FROM items i JOIN category c ON i.category_id = c.id ORDER BY c.name, i.name');
+      $items = DB::select('SELECT i.id, i.name, c.name as category, i.description, i.price, i.special FROM items i JOIN category c ON i.category_id = c.id WHERE today = 1 ORDER BY c.name, i.name');
       return $items;
     }
 }

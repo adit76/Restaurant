@@ -11,7 +11,7 @@
 
 <h1 style="text-align: center; padding: 5px 0; color: white;">Menu</h1>
 
-<div class="cart_icon" id="cart_icon">In Cart: 0</div>
+<div class="cart_icon" id="cart_icon" style="display: none;">In Cart: 0</div>
 
 <div class="menu">
   <div class="list" id="special_offer">

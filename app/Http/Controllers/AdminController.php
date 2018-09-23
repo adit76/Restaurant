@@ -396,4 +396,110 @@ class AdminController extends Controller
 		  return view('admin.album.new_album');
 		}
 	}
+	
+	public function category(Request $request){
+		if(!AdminController::check()){
+			return redirect()->route('admin_index');
+		} //Check if logged in
+		
+		if($request->isMethod('post')){
+		  $this -> validate(
+			$request,
+			[
+			  'name'=>'required',
+			  'description'=>'required',
+			]
+		  );
+		  
+			$data = [];
+			$data['name'] = $request->input('name');
+			$data['description'] = $request->input('description');
+
+			DB::table('category')->insert($data);
+			
+			Session::flash('message', "success");
+			return redirect()->route('category');
+		}else{
+		  $category = DB::table('category')->get();
+		  return view('admin.menu.category',['category'=>$category]);
+		}
+	}
+	
+	public function food(Request $request, $id){
+		if(!AdminController::check()){
+			return redirect()->route('admin_index');
+		} //Check if logged in
+		
+		if($request->isMethod('post')){
+		  $this -> validate(
+			$request,
+			[
+			  'name'=>'required',
+			  'category_id'=>'required',
+			  'description'=>'required',
+			  'price'=>'required',
+			  'special'=>'required',
+			]
+		  );
+		  
+			$data = [];
+			$data['name'] = $request->input('name');
+			$data['category_id'] = $request->input('category_id');
+			$data['description'] = $request->input('description');
+			$data['price'] = $request->input('price');
+			$data['special'] = $request->input('special');
+
+			DB::table('items')->insert($data);
+			
+			Session::flash('message', "success");
+			return redirect()->back();
+		}else{
+		  $category = DB::table('category')->get();
+		  $food = DB::table('items')
+			->join('category', 'category.id', '=', 'items.category_id')
+			->select('category.id as cid','items.id as iid', 'category.name as cname', 'items.name as iname','category.description as cdescription', 'items.description as idescription', 'price', 'special', 'category_id')
+			->where('category_id',$id)
+			->get();
+		  return view('admin.menu.food',['category'=>$category, 'food'=>$food, 'id'=>$id]);
+		}
+	}
+	
+	public function food_remove($id){
+		if(!AdminController::check()){
+			return redirect()->route('admin_index');
+		} //Check if logged in
+		DB::table('items')
+            ->where('id', $id)
+            ->delete();
+		return redirect()->back();
+	}
+	
+	public function today(Request $request){
+		if(!AdminController::check()){
+			return redirect()->route('admin_index');
+		} //Check if logged in
+		
+		if($request->isMethod('post')){
+			$today = $request->input('today');
+			//return $today;
+			DB::table('items')
+				->update(['today' => 0]);
+				
+			foreach($today as $t){
+				DB::table('items')
+				->where('id', $t)
+				->update(['today' => 1]);
+			}
+						
+			Session::flash('message', "success");
+			return redirect()->back();
+		}else{
+		  $food = DB::table('items')
+			->join('category', 'category.id', '=', 'items.category_id')
+			->select('category.id as cid','items.id as iid', 'category.name as cname', 'items.name as iname','category.description as cdescription', 'items.description as idescription', 'price', 'special', 'category_id', 'today')
+			->orderBy('category_id')
+			->get();
+		  return view('admin.menu.today',['food'=>$food]);
+		}
+	}
 }

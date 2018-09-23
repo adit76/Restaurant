@@ -86,11 +86,11 @@
             <span class="nav-link-text">Menu</span>
           </a>
           <ul class="sidenav-second-level collapse" id="menu_toggle">
-            <li>
-              <a href="dashboard/album">Food</a>
+			<li>
+              <a href="{{ route('category') }}">Category</a>
             </li>
             <li>
-              <a href="dashboard/photos">Routine</a>
+              <a href="{{ route('today') }}">Today</a>
             </li>
           </ul>
         </li>
