@@ -92,7 +92,7 @@ var deleteAnimate = false;
 
 function displayMenu(){
 	if(localStorage.getItem('cart') != null){
-		$('.loading').html("<button class='big_button' style='background:salmon;' onclick='clearCache()'>Clear Cached Order</button>");
+		$('.loading').html("<button class='big_button' style='background:salmon !important;' onclick='clearCache()'>Clear Cached Order</button>");
 		return;
 	}
 	
