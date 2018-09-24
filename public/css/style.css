@@ -204,11 +204,12 @@ body{
   border: 2px solid #da3743;
   color: white;
   font-weight: bold;
-  transition: 1s;
+  transition: border 1s;
+  
 }
 
-.background-text .form button{
-	padding: 10px;
+.background-text  button{
+	
   margin-top: 20px;
   border-radius: 5px;
   outline: none;
@@ -216,11 +217,12 @@ body{
   border: 2px solid #da3743;
   color: white;
   font-weight: bold;
-  transition: 1s;
+  transition: border 1s;
+  padding: 10px;
 }
 
 
-.background-text .form button:hover{
+.background-text  button:hover{
 	background-color: #B8222D;
 	border: 2px solid salmon;
 	cursor: pointer;
@@ -500,9 +502,119 @@ a:active, a:focus {
 .footer .lintend p{
 	color: #595959;
 }
+
+.mobile_btn{
+	display: none;
+}
+
+
+
+
+/*MOBILE RESERVATION*/
+
+.mobile-form{
+	visibility: hidden;
+	position: fixed;
+	z-index: 999;
+	align-self: center;
+	top: 18%;
+	background: rgba(0,0,0, 0.9);
+	padding: 60px;
+}
+
+.mobile-background-text{
+	clear: both;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+}
+
+.mobile-background-text .mobile-form{
+	text-align: center;
+}
+
+.mobile-background-text .mobile-form input{
+    border: none;
+    margin: 10px;
+}
+
+.mobile-background-text .mobile-form input[type="text"]{
+	padding: 4px;
+}
+
+.mobile-background-text .mobile-form input[type="number"]{
+	padding: 4px;
+}
+
+
+
+.mobile-background-text .mobile-form select{
+    padding: 4px;
+    border: none;
+}
+
+
+
+.mobile-background-text .mobile-form i{
+	position: absolute;
+	width: 10px;
+	height: 20px;
+	top: 20;
+	right: 20;
+}
+
+.mobile-background-text .mobile-form i:hover{
+	cursor: pointer;
+}
+	
+
+
+
+
+.order_button{
+	padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  outline: none;
+  background: #da3743;
+  border: 2px solid #da3743;
+  color: white;
+  font-weight: bold;
+  transition: border 1s;
+  min-width: 20px;
+ 
+}
+
+.mobile-background-text button{
+	padding: 5px;
+  margin-top: 20px;
+  border-radius: 5px;
+  outline: none;
+  background: #da3743;
+  border: 2px solid #da3743;
+  color: white;
+  font-weight: bold;
+  transition: border 1s;
+  min-width: 20px;
+}
+
+
+.mobile-background-text  button:hover{
+	background-color: #B8222D;
+	border: 2px solid salmon;
+	cursor: pointer;
+}
+
+
 /*Responsive*/
 
  @media screen and (max-width: 900px){
+ 	.mobile_btn{
+ 		display: block;
+ 		z-index: 0;
+ 	}
 
  	body{
  		width: 100%;
@@ -510,7 +622,7 @@ a:active, a:focus {
  		margin: 0;
  	}
 
- 	.footer{
+ 	.footer .foot{
  		flex-flow: column;
  		align-items: center;
 	}
@@ -537,11 +649,10 @@ a:active, a:focus {
  	}
 
 	.container{
-  	background-attachment: fixed;
-  	height: 59vh;
-		background-size: 100% 60%;
+	  	background-attachment: fixed;
+	  	height: 50vh;
 		background-color: rgba(0,0,0,.5);
-		background-position: bottom;
+		background-size: cover;
   }
 
   	.navigation .navbar-right{
@@ -549,24 +660,25 @@ a:active, a:focus {
   	}
 
   @keyframes zoom {
-    0%   {background-image: url("../images/background.jpg"); background-size: 100% 60%;}
-    50%  {background-image: url("../images/background.jpg"); background-size: 100% 60%;}
-    55%  {background-image: url("../images/background2.jpg"); background-size: 100% 60%;}
-    100% {background-image: url("../images/background2.jpg"); background-size: 100% 60%;}
+    0%   {background-image: url("../images/background.jpg");}
+    50%  {background-image: url("../images/background.jpg");}
+    55%  {background-image: url("../images/background2.jpg");}
+    100% {background-image: url("../images/background2.jpg");}f
 	}
 
 	.background-text{
+		padding-top: 100px;
 		height: 35vh;
 	}
 
 	.background-text h1{
 		font-size: 15px;
-		line-height: 30px;
+		line-height: 20px;
 	}
 
 	.background-text .form{
-		display: none;
-
+		visibility: hidden;
+		z-index: 999;
 	}
 
 	.background-text button{
@@ -580,7 +692,7 @@ a:active, a:focus {
 	}
 
 	.background-arrow{
-		margin-top: 20px;
+		margin-top: 50px;
 	}
 
 	.inner .background-arrow i:hover{
