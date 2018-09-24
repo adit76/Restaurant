@@ -90,6 +90,15 @@ Route::get('/dashboard/album/new/album', 'AdminController@new_album')->name('new
 Route::post('/dashboard/album/new/album', 'AdminController@new_album')->name('new_album_create');
 Route::get('remove_photo', 'AdminController@remove_photo')->name('remove_photo');
 Route::post('upload_photo', 'AdminController@upload_photo')->name('upload_photo');
+//|||| FOOD - MENU ||||//
+Route::get('/dashboard/category', 'AdminController@category')->name('category');
+Route::post('/dashboard/category', 'AdminController@category')->name('category_create');
+Route::get('/dashboard/category/{id}', 'AdminController@food')->name('food');
+Route::post('/dashboard/category/{id}', 'AdminController@food')->name('food_create');
+Route::get('remove_item/{id}', 'AdminController@food_remove')->name('food_remove');
+Route::get('/dashboard/today', 'AdminController@today')->name('today');
+Route::post('/dashboard/today', 'AdminController@today')->name('today_edit');
+
 
 
 //Record Update//

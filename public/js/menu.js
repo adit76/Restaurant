@@ -30,7 +30,7 @@ $(window).scroll(function() {                  // assign scroll event listener
 
 	var currentScroll = $(window).scrollTop(); // get current position
 
-	if (currentScroll >= 85) {           // apply position: fixed if you
+	if (currentScroll >= 45) {           // apply position: fixed if you
 		$('.fixed_container').addClass('fixed_container_fixed');
 	} else {                                   // apply position: static
 		$('.fixed_container').removeClass('fixed_container_fixed');
@@ -92,7 +92,7 @@ var deleteAnimate = false;
 
 function displayMenu(){
 	if(localStorage.getItem('cart') != null){
-		$('.loading').html("<button class='big_button' style='background:salmon;' onclick='clearCache()'>Clear Cached Order</button>");
+		$('.loading').html("<button class='big_button' style='background:salmon !important;' onclick='clearCache()'>Clear Cached Order</button>");
 		return;
 	}
 	

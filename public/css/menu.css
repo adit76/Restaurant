@@ -225,7 +225,7 @@ body{
 
 .big_button{
 	padding: 10px;
-	background: #449965;
+	background: #449965 !important;
 	color: white;
 	border: 1px solid black;
 	font-weight: bold;
