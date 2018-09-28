@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+      <div class="inner">
+        <div class="navigation">
+
+            <div class="navbar-left">
+              <img src="images/logo.png">
+            </div>
+
+            <div class="navbar-right">
+              <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="menu">MENU</a></li>
+                <li><a href="contact">CONTACT US</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="#">CART <i class="fas fa-shopping-cart"></i></a></li>
+              </ul>
+            </div>
+
+        </div>
+
+        <div class="background-text">
+          <h1>FIND YOUR TABLE FOR ANY OCCASION</h1>
+          <div class="form" >
+
+                <label class="label"><i class="far fa-calendar"></i>
+				<input type="text" id="datepicker" readonly="true" placeholder="Date">
+				</label>
+              
+                <label class="label"><i class="far fa-clock"></i>
+				<select name="time" form="time">
+                  <option value="10.00">10:00 AM</option>
+                  <option value="10.30">10:30 AM</option>
+                  <option value="11.00">11:00 AM</option>
+                  <option value="11.30">11:30 AM</option>
+                  <option value="12.00">12:00 PM</option>
+                  <option value="12.30">12:30 PM</option>
+                  <option value="13.00">01:00 PM</option>
+                  <option value="13.30">01:30 PM</option>
+                  <option value="14.00">02:00 PM</option>
+                  <option value="14.30">02:30 PM</option>
+                  <option value="15.00">03:00 PM</option>
+                  <option value="15.30">03:30 PM</option>
+                  <option value="16.00">04:00 PM</option>
+                  <option value="16.30">04:30 PM</option>
+                  <option value="17.00">05:00 PM</option>
+                  <option value="17.30">05:30 PM</option>
+                  <option value="18.00">06:00 PM</option>
+                  <option value="18.30">06:30 PM</option>
+                  <option value="19.00">07:00 PM</option>
+                  <option value="19.30">07:30 PM</option>
+                  <option value="20.00">08:00 PM</option>
+                  <option value="20.30">08:30 PM</option>
+                  <option value="21.00">09:00 PM</option>
+                  <option value="21.30">09:30 PM</option>
+                  <option value="22.00">10:00 PM</option>
+                </select>
+				</label>
+                
+                <label class="label"><i class="far fa-user"></i>
+				<input type="text" placeholder="Name">
+				</label>
+                
+                <label class="label"><img src="images/seat.svg">
+				<input type="number" min="1" max="10" placeholder="Seats" style="width: 60px;">
+				</label>
+				
+                <br>
+                <button >Book Table</button>
+            
+          </div>
+
+        </div>
+
+        <div class="background-arrow">
+        <button type="button"><i id="scroll-button" class="fas fa-arrow-circle-down"></i></button>
+        </div>
+    </div>
+
+</div>
+
+<div class="outer">
+      <div class="trending">
+        <h1>TRENDING</h1>
+
+        <div class="slider1" style="position: relative;">
+          <div class="main">
+            <div class="carousel">
+              <div class="img"><img src="images/menu/img1.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+              <div class="img"><img src="images/menu/img3.jpg"></div>
+            </div>
+
+            <div class="carousel">
+              <div class="img"><img src="images/menu/img1.jpg"></div>
+              <div class="img"><img src="images/menu/img3.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+            </div>
+
+            <div class="carousel">
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+            </div>
+          </div>
+
+        <div class="butt">
+          <i onclick="scrollRight(0)" class="fas fa-arrow-circle-right"></i>
+          <i onclick="moveLeft(0)" class="fas fa-arrow-circle-left"></i>
+        </div>
+      </div>
+      <br><br><br><br>
+    </div>
+
+    <div class="combo">
+      <h1>COMBO-PACK</h1>
+
+        <div class="slider2" style="position: relative;">
+          <div class="main main2">
+            <div class="carousel">
+              <div class="img"><img src="images/menu/img1.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+              <div class="img"><img src="images/menu/img3.jpg"></div>
+            </div>
+
+            <div class="carousel">
+              <div class="img"><img src="images/menu/img1.jpg"></div>
+              <div class="img"><img src="images/menu/img3.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+            </div>
+
+            <div class="carousel">
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+              <div class="img"><img src="images/menu/img2.jpg"></div>
+            </div>
+          </div>
+
+        <div class="butt">
+          <i onclick="scrollRight(1)" class="fas fa-arrow-circle-right"></i>
+          <i onclick="moveLeft(1)" class="fas fa-arrow-circle-left"></i>
+        </div>
+      </div>
+      <br><br>
+    </div>
+
+    </div>
+</div>
+
+ 
+
+
+        <div class="footer">
+          <div class="address">
+            <h3>ADDRESS</h3>
+            <p>Kothshwor-35, Kathmandu</p>
+          </div>
+          <div class="phone">
+            <h3>PHONE</h3>
+            <p>01-4612345</p>
+          </div>
+          <div class="email">
+            <h3>E-MAIL</h3>
+            <p>contactme@gmail.com</p>
+          </div>
+          <div class="social">
+            <i class="fab fa-facebook-square" style="color: #3B5998; border-radius: 5px;"></i>
+            <i class="fab fa-google-plus" style="color: #d34836;"></i>
+          </div>
+        </div>
+
+  
+
+
+    <div class="dummy">
+      <img src="images/background2.jpg">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+    $("#scroll-button").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".trending").offset().top},
+        'slow');
+    });
+    </script>
+
+    <script>
+  var x = document.getElementsByClassName("main");
+  var screenWidth = screen.width/3;
+  var scrolledBy = 1;
+  
+  function scrollRight(i){
+    var smooth = setInterval(function(){
+        x[i].scrollBy(10, 0);
+        scrolledBy = scrolledBy + 10;
+        if(scrolledBy >= screenWidth){
+          clearInterval(smooth);
+          scrolledBy = 1;
+        }
+    }, 0);
+  }
+
+  //Author: Niush Sitaula
+  //Copyright for open uses: 2018
+
+  function moveLeft(i){
+    var smooth2 = setInterval(function(){
+        x[i].scrollBy(-10, 0);
+        scrolledBy = scrolledBy - 10;
+        if(scrolledBy <= (-screenWidth)){
+          clearInterval(smooth2);
+          scrolledBy = 1;
+        }
+    }, 0);
+  }
+
+    var dateToday = new Date();
+    $( function() {
+    var dates = $("#datepicker").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    minDate: dateToday,
+    onSelect: function(selectedDate) {
+        var option = this.id == "from" ? "minDate" : "maxDate",
+            instance = $(this).data("datepicker"),
+            date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+        dates.not(this).datepicker("option", option, date);
+    }
+  });
+  });
+
+</script>
+
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
+
+
+</body>
+</html>

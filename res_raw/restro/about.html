@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+      }
+
+      img, table, button, .navigation{
+        user-select: none;
+      }
+
+      a{
+        text-decoration: none;
+        color: inherit;
+      }
+
+      body{
+        font-family: "Roboto", Sans-serif;
+      }
+
+      .navigation{
+        background-color: rgba(0,0,0,0.8);:
+        background: #1E2327;
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        z-index: 999;
+      }
+
+      .nav-left{
+        float: left;
+      }
+
+      .nav-left img{
+        width: 140px;
+        height: 40px;
+        margin: 15px;
+      }
+
+      .nav-right{
+        float: right;
+        padding: 28px;
+      }
+
+
+
+      .nav-right ul li{
+        list-style: none;
+        display: inline;
+        float: left;
+        padding-right: 30px;
+      }
+
+      .nav-right ul li a{
+        padding: 10px;
+        position: relative;
+        text-decoration: none;
+        color: white;
+        font-family: "Roboto", Sans-serif;
+        font-weight: bolder;
+        transition: 0.5s ease;
+      }
+
+      .nav-right ul li a:after{
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 3px;
+        background: #DEDEDE;
+        bottom: 0;
+        left: 50%;
+        transition: 0.3s ease;
+      }
+
+      .nav-right ul li a:hover:after{
+        width: 100%;
+        left: 0;
+      }
+
+      .mobile-nav-right{
+        display: none;
+      }
+
+      .mobile-nav-right button{
+        width: 100px;
+        height: 40px;
+        position: relative;
+        margin: 15px;
+        background: transparent;
+        border: none;
+        color: white;
+      }
+
+      .mobile-nav-right .menu{
+        z-index: 9;
+        background: #1E2327;
+        position: absolute;
+        right: 0;
+        padding: 15px;
+        height: 100vh;
+        list-style-type: none;
+        color: white;
+        font-size: 1.2em;
+      }
+
+      .mobile-nav-right .menu li{
+        padding-top: 15px;
+      }
+
+
+
+      .container{
+        background-image: url("aboutback.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: 0px 0;
+        position: relative;
+      }
+
+      .clearfix::after {
+      content: "";
+      clear: both;
+    }
+
+    .brace{
+      background-image: url('line.png');
+      width: 80%;
+      height: 50px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center center;
+      margin-left: 8%;
+    }
+
+
+
+    @media screen and (max-width: 1100px){
+      .div1{
+        flex-flow: column !important;
+      }
+    }
+
+    @media screen and (max-width: 800px){
+      .nav-right{
+        font-size: 0.6em;
+        display: none;
+      }
+
+      .mobile-nav-right{
+        display: block;
+        float: right;
+      }
+
+    }
+
+    /*Footer*/
+
+    .footer{
+  background-image: url(footer.jpg);
+  color: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  justify-content: space-evenly;
+  padding: 20px 0;
+}
+
+.footer h3{
+  color: #3a5b75;
+  margin-top: 10px;
+}
+
+.footer p{
+  padding-top: 10px;
+}
+
+.footer .social i{
+  font-size: 35px;
+  margin: 15px;
+}
+
+.div2 h3{
+  word-spacing: 5px;
+  line-height: 35px;
+}
+
+.live{
+  transition: all 0.5s ease-in-out;
+}
+
+.live:hover{
+  opacity: 1 !important;
+  cursor: pointer;
+  s
+  }
+
+
+    </style>
+
+</head>
+<body>
+
+  <!-- Navigation -->
+
+  <div class="navigation">
+    <div class="nav-left">
+      <img src="logo.png">
+    </div>
+    <div class="nav-right">
+              <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#delivery">MENU</a></li>
+                <li><a href="#trending">CONTACT US</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">CART <i class="fas fa-shopping-cart"></i></a></li>
+              </ul>
+    </div>
+    <div class="mobile-nav-right">
+        <div class="togglebutton">
+          <button class="butt" id="burger"><i class="fas fa-bars"></i></button>
+              <ul class="menu" id="menu">
+                <li><a href="index.html">MENU</a></li>
+                <li><a href="#delivery">DELIVERY</a></li>
+                <li><a href="#trending">CONTACT US</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">CART <i class="fas fa-shopping-cart"></i></a></li>
+              </ul>
+          </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+      <div class="image" style="height: 400px; background-image: url('about.jpg'); background-repeat: no-repeat;
+      background-size: cover;">
+      </div>
+
+      <div class="main">
+          <div class="div1" style="display: flex; color: white; text-align: center;">
+
+            <div class="text" style="margin: 25px;">
+              <h1 style="letter-spacing: 10px;">The Restaurant</h1>
+              <div class="brace"></div>
+                <p style="text-align: justify; padding-top: 45px; line-height: 24px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type
+                specimen book. It has survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.</p>
+            </div>
+            <img src="res.jpg" style="border: 5px solid black; padding: 5px; height: auto; margin: 20px;">
+
+        </div>
+        <br><br>
+        <hr style="color: white;">
+        <br>
+        <br>
+        <div class="div2" style="display: flex;  color: white;">
+          <div class="inner1" style="margin: 80px 200px">
+
+              <!-- Lunch -->
+              <h2 style="margin: 0; padding: 0;">LUNCH</h2>
+              <div class="brace" style="margin: 0; width: 250px;"></div>
+
+              <h3 style="color: #7398b5;">Sun, Mon, Tue, Thu, Fri</h3>
+              <h3>12:00 pm - 3:00 pm</h3>
+              <br>
+              <br>
+              <h3 style="color: #7398b5;">Wed & Sat</h3>
+              <h3>11:00 am - 3:00 pm</h3>
+
+          </div>
+            <hr>
+          <div class="inner2" style="margin: 80px 100px">
+              <h2 style="margin: 0; padding: 0;">DINNER</h2>
+              <div class="brace" style="margin: 0; width: 250px;"></div>
+
+              <h3 style="color: #7398b5;">Sun, Mon, Tue, Wed, Thu</h3>
+              <h3>6:00 pm - 10:00 pm</h3>
+              <br>
+              <br>
+            <div class="live" style="padding-left: 27px; width: 250px; height: 150px; opacity: 0.8; border: 1px solid white; background-image: url(https://i.gifer.com/WiPw.gif)">
+              <h3 style="position: relative; color: #7398b5; ;z-index: 999;">Fri & Sat</h3>
+              <h3 style="position: relative; z-index: 999;">7:00 pm - 12:00 am </h3>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <hr style="color: white; margin: 20px;">
+
+        <div class="inner3" style="color: white; text-align: center; word-spacing: 5px; line-height: 30px;">
+          <h3>Seating Capacity: 90 Guests</h3>
+          <h3>Private Rooms and Bar Available</h3>
+          <h3>Live Music on WeekEnd</h3>
+          <h3>Home Delivery Services Available</h3>
+          <h3>You can get a reservation</h3>
+        </div>
+
+  </div>
+
+
+  <div class="footer" style="margin-top: 20px;">
+          <div class="address">
+            <h3>ADDRESS</h3>
+            <p>Kothshwor-35, Kathmandu</p>
+          </div>
+          <div class="phone">
+            <h3>PHONE</h3>
+            <p>01-4612345</p>
+          </div>
+          <div class="email">
+            <h3>E-MAIL</h3>
+            <p>contactme@gmail.com</p>
+          </div>
+          <div class="social">
+            <i class="fab fa-facebook-square" style="color: #3B5998; border-radius: 5px;"></i>
+            <i class="fab fa-google-plus" style="color: #d34836;"></i>
+          </div>
+        </div>
+
+
+
+
+</body>
+</html>

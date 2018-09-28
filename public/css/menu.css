@@ -1,0 +1,249 @@
+/*Override Nav*/
+/* .navigation{
+	position: relative;
+}
+
+main{
+	padding-top: 10px;
+} */
+
+body{
+	background: #787878;
+}
+
+.menu{
+	display: flex;
+	justify-content: center;
+	min-height: 200px;
+}
+
+.menu .list{
+	width: 45%;
+	border: 1px solid black;
+	background: #DEDEDE;
+}
+
+.menu table{
+	width: 100%;
+	border-collapse:separate;
+	border-spacing:0;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	-o-user-select:none;
+}
+
+.menu b{
+	display: block;
+	text-align: center;
+	letter-spacing: 5px;
+	padding: 5px 0;
+}
+
+.menu table tr td, .menu table tr th{
+	padding: 5px;
+	max-width: 50px;
+}
+
+.menu table tr th{
+	background: #67aa77;
+	color: white;
+	text-align: left;
+}
+
+.menu table tr:nth-child(odd) {
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+}
+
+.menu .orders{
+	margin-left: 20px;
+	width: 45%;
+}
+
+.menu .orders .fixed_container_parent{
+	width: 100%;
+	min-height: 400px;
+	max-height: 500px;
+	position: relative;
+	overflow: auto;
+}
+
+.menu .orders .fixed_container, .menu .orders .fixed_container_alternative {
+	border: 1px solid black;
+	position: relative;
+	overflow-y: auto;
+	background: #DEDEDE;
+	max-width: 100%;
+	max-height: 96%; /* For scrolling */
+}
+
+.menu .orders .fixed_container_fixed{
+	position: fixed;
+	top: 85px;
+	width: inherit;
+	max-width: 45%;
+}
+
+.menu .list table{
+	animation: show 0.5s ease forwards;
+}
+
+.menu .orders .items .current_change{
+	animation: change 0.5s ease forwards;
+	opacity: 1;
+}
+
+@media screen and (max-width: 800px){
+	.menu{
+		flex-flow: column;
+		align-items: center;
+		min-height: 200px;
+	}
+
+	.menu .orders{
+		margin-left: 0;
+		margin-top: 10px;
+		width: 400px;
+	}
+
+	.menu .orders, .menu .list{
+		width: 90%;
+	}
+
+	.menu .orders .fixed_container{
+		position: relative !important;
+		width: auto !important;
+		top: 0 !important;
+		max-width: 100% !important;
+	}
+}
+
+@keyframes show{
+	from{opacity: 0; transform: scale(0) translate(350px, 0);}
+	to{opacity: 1; transform: scale(1) translate(0, 0);}
+}
+
+@keyframes change{
+	from{background: #98CC98; transform: scale(0.9) translate(-10%,0);}
+	to{background: inherit; transform: scale(1) translate(0,0);}
+}
+
+@keyframes delete_change{
+	from{background: #CC9898; transform: scale(0.9) translate(0,3px);}
+	to{background: inherit; transform: scale(1) translate(0,0);}
+}
+
+@keyframes nope{
+	from{background: #CC9898; transform: scale(1) rotate(0);}
+	25%{background: #CC9898; transform: scale(1.1) rotate(-20deg);}
+	50%{background: #CC9898; transform: scale(1.1) rotate(20deg);}
+	75%{background: #CC9898; transform: scale(1.1) rotate(10deg);}
+	to{background: initial; transform: scale(1) rotate(0);}
+}
+
+.menu .orders .calculations{
+	font-weight: 500;
+	margin-left: 10px;
+}
+
+.menu .orders .calculations p{
+	margin: 2px;
+}
+
+.menu .orders .calculations #bill_sub_total{
+	font-weight: 700;
+	font-size: 1.05em;
+	letter-spacing: 3px;
+	position: relative;
+}
+
+.menu .orders .calculations #bill_sub_total:after{
+	white-space: pre;
+	content: "  :)";
+	position: absolute;
+	top: -5px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s 0.5s ease;
+}
+
+.menu .orders .calculations #bill_sub_total:hover:after{
+	opacity: 1;
+	visibility: visible;
+	transform: rotate(90deg);
+}
+
+/* Message Container */
+.message_container{
+	position: fixed;
+	right: 20px;
+	top: 30px;
+	z-index: 9999;
+}
+
+.message_container .error_msg{
+	background: #dd5555;
+	color: white;
+	font-size: 1.2em;
+	padding: 15px;
+	margin: 0 0 5px 0;
+	animation: fade 0.5s 3s ease forwards;
+}
+
+.message_container .success_msg{
+	background: #55dd55;
+	color: black;
+	font-size: 1.2em;
+	padding: 15px;
+	margin: 0 0 5px 0;
+	animation: fade 1s 4s ease forwards;
+}
+
+@keyframes fade{
+	from{opacity: 1; transform: scale(1); display: block;}
+	70%{opacity: 0.7; transform: scale(1.2); display: block;}
+	to{opacity: 0; transform: scale(0.1); display: none; visibility: hidden;}
+}
+
+/* For any btns centers you know sometimes needed like add delete btn */
+.btn{
+	text-align: center;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background 0.5s ease, box-shadow 1s ease;
+	width: 30px !important;
+}
+
+.btn:hover{
+	background: wheat;
+}
+
+/*BUTTON*/
+
+.big_button{
+	padding: 10px;
+	background: #449965 !important;
+	color: white;
+	border: 1px solid black;
+	font-weight: bold;
+	margin: 10px 0 10px 10px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.big_button:hover{
+	box-shadow: 1px 0 3px 0 #323232;
+}
+
+.menu .orders .calculations button{
+	background: salmon;
+	color: white;
+}
+
+.order_btn{
+	display: none;
+	margin-left: 10px;
+}
