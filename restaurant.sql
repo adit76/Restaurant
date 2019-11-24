@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2018 at 11:52 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: May 30, 2019 at 05:14 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -83,7 +85,7 @@ INSERT INTO `category` (`id`, `name`, `description`) VALUES
 (2, 'Pizza', 'Pie Chart'),
 (3, 'Chowmin', 'Long Noodles'),
 (4, 'Pancakes', 'Fat Weird Roti'),
-(5, 'Burger', 'You''ll Love it');
+(5, 'Burger', 'You\'ll Love it');
 
 -- --------------------------------------------------------
 
@@ -193,10 +195,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `items`, `status`, `delivery_boy`) VALUES
-(1, 1, '"[{\\"id\\":8,\\"name\\":\\"Mo:Mo + Coke + Chicken C\\",\\"category\\":\\"Mo:Mo\\",\\"description\\":\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\",\\"price\\":180,\\"special\\":1,\\"quantity\\":1},{\\"id\\":5,\\"name\\":\\"Banana Pancake\\",\\"category\\":\\"Pancakes\\",\\"description\\":\\"Pancake with Banana Jammed Inside\\",\\"price\\":60,\\"special\\":1,\\"quantity\\":1},{\\"id\\":7,\\"name\\":\\"Veg Chowmin\\",\\"category\\":\\"Chowmin\\",\\"description\\":\\"Why not a Cola with it?\\",\\"price\\":70,\\"special\\":0,\\"quantity\\":5}]"', '4', 2),
-(2, 1, '"[{\\"id\\":8,\\"name\\":\\"Mo:Mo + Coke + Chicken C\\",\\"category\\":\\"Mo:Mo\\",\\"description\\":\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\",\\"price\\":180,\\"special\\":1,\\"quantity\\":10}]"', '4', 2),
-(3, 1, '"[{\\"id\\":8,\\"name\\":\\"Mo:Mo + Coke + Chicken C\\",\\"category\\":\\"Mo:Mo\\",\\"description\\":\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\",\\"price\\":180,\\"special\\":1,\\"quantity\\":3},{\\"id\\":5,\\"name\\":\\"Banana Pancake\\",\\"category\\":\\"Pancakes\\",\\"description\\":\\"Pancake with Banana Jammed Inside\\",\\"price\\":60,\\"special\\":1,\\"quantity\\":2},{\\"id\\":7,\\"name\\":\\"Veg Chowmin\\",\\"category\\":\\"Chowmin\\",\\"description\\":\\"Why not a Cola with it?\\",\\"price\\":70,\\"special\\":0,\\"quantity\\":1}]"', '2', 2),
-(4, 3, '"[{\\"id\\":5,\\"name\\":\\"Banana Pancake\\",\\"category\\":\\"Pancakes\\",\\"description\\":\\"Pancake with Banana Jammed Inside\\",\\"price\\":60,\\"special\\":1,\\"quantity\\":4},{\\"id\\":3,\\"name\\":\\"Cheese Pizza\\",\\"category\\":\\"Pizza\\",\\"description\\":\\"Cheesy\\",\\"price\\":150,\\"special\\":0,\\"quantity\\":4}]"', '2', 1);
+(1, 1, '\"[{\\\"id\\\":8,\\\"name\\\":\\\"Mo:Mo + Coke + Chicken C\\\",\\\"category\\\":\\\"Mo:Mo\\\",\\\"description\\\":\\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\\",\\\"price\\\":180,\\\"special\\\":1,\\\"quantity\\\":1},{\\\"id\\\":5,\\\"name\\\":\\\"Banana Pancake\\\",\\\"category\\\":\\\"Pancakes\\\",\\\"description\\\":\\\"Pancake with Banana Jammed Inside\\\",\\\"price\\\":60,\\\"special\\\":1,\\\"quantity\\\":1},{\\\"id\\\":7,\\\"name\\\":\\\"Veg Chowmin\\\",\\\"category\\\":\\\"Chowmin\\\",\\\"description\\\":\\\"Why not a Cola with it?\\\",\\\"price\\\":70,\\\"special\\\":0,\\\"quantity\\\":5}]\"', '4', 2),
+(2, 1, '\"[{\\\"id\\\":8,\\\"name\\\":\\\"Mo:Mo + Coke + Chicken C\\\",\\\"category\\\":\\\"Mo:Mo\\\",\\\"description\\\":\\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\\",\\\"price\\\":180,\\\"special\\\":1,\\\"quantity\\\":10}]\"', '4', 2),
+(3, 1, '\"[{\\\"id\\\":8,\\\"name\\\":\\\"Mo:Mo + Coke + Chicken C\\\",\\\"category\\\":\\\"Mo:Mo\\\",\\\"description\\\":\\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\\",\\\"price\\\":180,\\\"special\\\":1,\\\"quantity\\\":3},{\\\"id\\\":5,\\\"name\\\":\\\"Banana Pancake\\\",\\\"category\\\":\\\"Pancakes\\\",\\\"description\\\":\\\"Pancake with Banana Jammed Inside\\\",\\\"price\\\":60,\\\"special\\\":1,\\\"quantity\\\":2},{\\\"id\\\":7,\\\"name\\\":\\\"Veg Chowmin\\\",\\\"category\\\":\\\"Chowmin\\\",\\\"description\\\":\\\"Why not a Cola with it?\\\",\\\"price\\\":70,\\\"special\\\":0,\\\"quantity\\\":1}]\"', '2', 2),
+(4, 3, '\"[{\\\"id\\\":5,\\\"name\\\":\\\"Banana Pancake\\\",\\\"category\\\":\\\"Pancakes\\\",\\\"description\\\":\\\"Pancake with Banana Jammed Inside\\\",\\\"price\\\":60,\\\"special\\\":1,\\\"quantity\\\":4},{\\\"id\\\":3,\\\"name\\\":\\\"Cheese Pizza\\\",\\\"category\\\":\\\"Pizza\\\",\\\"description\\\":\\\"Cheesy\\\",\\\"price\\\":150,\\\"special\\\":0,\\\"quantity\\\":4}]\"', '2', 6),
+(5, 1, '\"[{\\\"id\\\":5,\\\"name\\\":\\\"Banana Pancake\\\",\\\"category\\\":\\\"Pancakes\\\",\\\"description\\\":\\\"Pancake with Banana Jammed Inside\\\",\\\"price\\\":60,\\\"special\\\":1,\\\"quantity\\\":3},{\\\"id\\\":8,\\\"name\\\":\\\"Mo:Mo + Coke + Chicken C\\\",\\\"category\\\":\\\"Mo:Mo\\\",\\\"description\\\":\\\"Combo Pack Special Offer Mo:Mo + Coke + Chicken Chilli\\\",\\\"price\\\":180,\\\"special\\\":1,\\\"quantity\\\":3},{\\\"id\\\":11,\\\"name\\\":\\\"Ham Burger\\\",\\\"category\\\":\\\"Burger\\\",\\\"description\\\":\\\"Hammed\\\",\\\"price\\\":80,\\\"special\\\":0,\\\"quantity\\\":1}]\"', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -256,7 +259,7 @@ INSERT INTO `reservations` (`id`, `user_id`, `date`, `time`, `name`, `seats`, `s
 (4, 1, '2018-01-01', '15.00', 'David', 4, 27, 0),
 (5, NULL, '2018-09-20', '13.30', 'Dave', 5, 13, 0),
 (6, 1, '2018-09-27', '10.00', 'shankar', 5, 21, 0),
-(7, NULL, '2018-09-23', '18.00', 'nisha', 4, 23, 1);
+(7, NULL, '2018-09-23', '18.00', 'nisha', 4, 23, 0);
 
 -- --------------------------------------------------------
 
@@ -285,7 +288,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `contact`, `email`, `password`, `address`, `city`, `street`, `verified`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Niush', 'Sitaula', '29034', 'n@g.c', '$2y$10$AcKvq7PpUqq1rG5Y66jXzOdmcjMlL.H5SDWYejn0FLA21xTRJgljC', 'bkt', 'bo', 'pl', 0, 'KW54E6oirz2NQ2KpZDH9tPP5Bp66QVlPNDSe97QY4KJ4KFvBwzPHOQ0VIsxN', '2018-09-16 01:18:33', '2018-09-16 01:18:33'),
+(1, 'Niush', 'Sitaula', '29034', 'n@g.c', '$2y$10$AcKvq7PpUqq1rG5Y66jXzOdmcjMlL.H5SDWYejn0FLA21xTRJgljC', 'bkt', 'bo', 'pl', 0, 'EGdEpGhpsWlg6AF2CIX6MMTmOy8pjDNKgcf4PXVVwSUTuo6S2EE17oMlgAFc', '2018-09-16 01:18:33', '2018-09-16 01:18:33'),
 (2, 'ribesh', 'ribesh', '23456789', 'ribesh@gmail.com', '$2y$10$gdA3KtiDeWOIr0H6O31VnOkrC2SPxW17XoB9ixeeT9FdzAwGi4/6e', 'baneshwor', 'kathmandu', 'skfbf', 0, NULL, '2018-09-18 05:28:56', '2018-09-18 05:28:56'),
 (3, 'nisha', 'nisha', '984656798', 'nisha.s@gmail.com', '$2y$10$Eyb7PYMqBVAq9l.i/iDX0.wRinhZN5qYc9ly9Dz9z3h.0NAqZFAFe', 'Bhaktapur', 'Bode Planning', 'Sintitar', 0, 'tBSZZiBAwDJMHNqvvUKG4LyeaYkeOI99mQfowM8yNWvZNTrVf8cXkqUtgWta', '2018-09-21 22:23:08', '2018-09-21 22:23:08');
 
@@ -374,56 +377,68 @@ ALTER TABLE `users`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `delivery_boy`
 --
 ALTER TABLE `delivery_boy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
